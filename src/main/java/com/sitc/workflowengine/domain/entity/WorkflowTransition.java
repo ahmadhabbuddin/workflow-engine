@@ -1,11 +1,17 @@
 package com.sitc.workflowengine.domain.entity;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import java.time.Instant;
 import java.util.UUID;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -58,10 +64,6 @@ public class WorkflowTransition extends BaseAuditableEntity {
 
     @Column(nullable = false)
     private Boolean active = true;
-
-    @Version
-    @Column(name = "lock_version", nullable = false)
-    private Integer lockVersion;
 
     @PrePersist
     public void generateId() {
