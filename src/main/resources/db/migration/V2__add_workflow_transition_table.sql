@@ -32,6 +32,8 @@ CREATE TABLE workflow_transition (
     created_by                  VARCHAR(100)   NOT NULL,
     updated_at                  TIMESTAMP,
     updated_by                  VARCHAR(100),
+    deleted_at                  TIMESTAMP,
+    deleted_by                  VARCHAR(100),
 
     CONSTRAINT pk_workflow_transition
         PRIMARY KEY (id),

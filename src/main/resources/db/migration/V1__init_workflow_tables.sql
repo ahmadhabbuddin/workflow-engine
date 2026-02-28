@@ -55,6 +55,8 @@ CREATE TABLE workflow_state (
     updated_by              VARCHAR(100),
 
     deleted                 BOOLEAN        NOT NULL DEFAULT FALSE,
+    deleted_at              TIMESTAMP,
+    deleted_by              VARCHAR(100),
 
     CONSTRAINT pk_workflow_state
         PRIMARY KEY (id),
